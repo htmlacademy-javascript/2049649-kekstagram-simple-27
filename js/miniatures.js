@@ -11,8 +11,8 @@ const createPhotoAll = createPhotoDescription();
 createPhotoAll.forEach(({url, likes, comments}) => {
   const picture = pictures.cloneNode(true);
   picture.querySelector('.picture__img').src = url;
-  picture.querySelector('.picture__likes').textContent = likes;
-  picture.querySelector('.picture__comments').textContent = comments;
+  picture.querySelector('.picture__likes').textContent = String(likes);
+  picture.querySelector('.picture__comments').textContent = String(comments);
 
   createFragment.append(picture);
   return picture;
