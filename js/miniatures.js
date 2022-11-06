@@ -15,7 +15,6 @@ createPhotoAll.forEach(({url, likes, comments}) => {
   picture.querySelector('.picture__comments').textContent = String(comments);
 
   createFragment.append(picture);
-  return picture;
 });
 
 usersPictures.append(createFragment);
