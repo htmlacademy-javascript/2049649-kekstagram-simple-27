@@ -47,4 +47,6 @@ function getRandomPositiveInteger (a, b) {
 // Генерация случайного элемента в массиве
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-export {getRandomPositiveInteger, getRandomArrayElement};
+const isEscapeKey = (evt) => evt.key === 'Escape'; // Проверка нажитой клавиши
+
+export {getRandomPositiveInteger, getRandomArrayElement, isEscapeKey};
