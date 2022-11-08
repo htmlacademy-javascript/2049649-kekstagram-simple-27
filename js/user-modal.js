@@ -1,9 +1,9 @@
 import {isEscapeKey} from './util.js';
+import {imgUploadForm, pristine} from './user-form.js';
 
 const uploadFile = document.querySelector('#upload-file'); // Поле для загрузки изображения
 const uploadCancel = document.querySelector('#upload-cancel'); // Кнопка для закрытия формы редактирования изображения
 const imgUploadOverlay = document.querySelector('.img-upload__overlay'); // Форма редактирования изображения
-const imgUpload = document.querySelector('.img-upload__form'); // Поле для загрузки нового изображения на сайт
 
 //Удаление обработчика закрытия окна по нажатию на Esc
 const onPopupEscKeydown = (evt) => {
@@ -23,6 +23,7 @@ const closeUserModal = () => {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscKeydown);
+  imgUploadForm.value = '';
 };
 
 uploadFile.addEventListener('change', () => {
@@ -31,4 +32,10 @@ uploadFile.addEventListener('change', () => {
 
 uploadCancel.addEventListener('click', () => {
   closeUserModal();
+});
+
+imgUploadForm.addEventListener('submit', (evt) => {
+  if (!pristine.validate()) {
+    evt.preventDefault();
+  }
 });
