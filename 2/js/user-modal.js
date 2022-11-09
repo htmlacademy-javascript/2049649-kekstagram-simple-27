@@ -13,18 +13,18 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
-const openUserModal = () => {
+function openUserModal () {
   imgUploadOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onPopupEscKeydown);
-};
+}
 
-const closeUserModal = () => {
+function closeUserModal () {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscKeydown);
   imgUploadForm.value = '';
-};
+}
 
 uploadFile.addEventListener('change', () => {
   openUserModal();
