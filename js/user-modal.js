@@ -23,7 +23,7 @@ function closeUserModal () {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscKeydown);
-  imgUploadForm.value = '';
+  imgUploadForm.reset();
 }
 
 uploadFile.addEventListener('change', () => {
