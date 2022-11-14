@@ -1,6 +1,7 @@
 import {isEscapeKey} from './util.js';
 import {imgUploadForm, pristine} from './user-form.js';
 import {resetScale} from './scale.js';
+import {resetEffects} from './effect.js';
 
 const uploadFile = document.querySelector('#upload-file'); // Поле для загрузки изображения
 const uploadCancel = document.querySelector('#upload-cancel'); // Кнопка для закрытия формы редактирования изображения
@@ -26,6 +27,7 @@ function closeUserModal () {
   document.removeEventListener('keydown', onPopupEscKeydown);
   imgUploadForm.reset();
   resetScale();
+  resetEffects();
 }
 
 uploadFile.addEventListener('change', () => {
