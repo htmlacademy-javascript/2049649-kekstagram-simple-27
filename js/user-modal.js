@@ -6,6 +6,9 @@ import {resetEffects} from './effect.js';
 import {sendData} from './api.js';
 import {showSuccessMessage, showErrorMessage} from './message.js';
 
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+const preview = document.querySelector('.img-upload__preview img');
+
 const uploadFile = document.querySelector('#upload-file'); // Поле для загрузки изображения
 const uploadCancel = document.querySelector('#upload-cancel'); // Кнопка для закрытия формы редактирования изображения
 const imgUploadOverlay = document.querySelector('.img-upload__overlay'); // Форма редактирования изображения
@@ -31,6 +34,7 @@ function openUserModal () {
   imgUploadOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onPopupEscKeydown);
+  document.body.style.overflow = 'hidden';
 }
 
 function closeUserModal () {
@@ -42,6 +46,17 @@ function closeUserModal () {
 
 uploadFile.addEventListener('change', () => {
   openUserModal();
+});
+
+uploadFile.addEventListener('change', () => {
+  const file = uploadFile.files[0];
+  const fileName = file.name.toLowerCase();
+
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+
+  if(matches) {
+    preview.src = URL.createObjectURL(file);
+  }
 });
 
 uploadCancel.addEventListener('click', () => {

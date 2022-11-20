@@ -1,6 +1,6 @@
 const apiUrl = {
   GET: 'https://27.javascript.pages.academy/kekstagram-simple/data',
-  POST: 'https://27.javascript.pages.academy/kekstagram-simpl'
+  POST: 'https://27.javascript.pages.academy/kekstagram-simple'
 };
 
 const getData = (onSuccess, onError) => {
