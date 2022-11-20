@@ -20,6 +20,13 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
+function resetPage () {
+  imgUploadForm.reset();
+  resetScale();
+  resetEffects();
+  pristine.reset();
+}
+
 function openUserModal () {
   imgUploadOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
@@ -30,10 +37,7 @@ function closeUserModal () {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscKeydown);
-  imgUploadForm.reset();
-  resetScale();
-  resetEffects();
-  pristine.reset();
+  resetPage();
 }
 
 uploadFile.addEventListener('change', () => {
@@ -54,15 +58,17 @@ const unblockSubmitButton = () => {
   uploadSubmit.textContent = 'Опубликовать';
 };
 
-const setUserFormSubmit = (onSuccess) => {
+const setUserFormSubmit = () => {
   imgUploadForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const isValid = pristine.validate();
     if (isValid) {
       blockSubmitButton();
       sendData(
-        evt, () => {
+        () => {
           unblockSubmitButton();
+          closeUserModal();
+          resetPage();
           showSuccessMessage();
         },
         () => {

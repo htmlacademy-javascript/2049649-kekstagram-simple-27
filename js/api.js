@@ -1,19 +1,17 @@
 const apiUrl = {
   GET: 'https://27.javascript.pages.academy/kekstagram-simple/data',
-  POST: 'https://27.javascript.pages.academy/kekstagram-simple'
+  POST: 'https://27.javascript.pages.academy/kekstagram-simpl'
 };
 
 const getData = (onSuccess, onError) => {
   fetch(apiUrl.GET)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        onError();
-      }
+    .then((response) => response.json())
+    .then((photos) => {
+      onSuccess(photos);
     })
-    .then(onSuccess)
-    .catch(onError);
+    .catch(() => {
+      onError();
+    });
 };
 
 const sendData = (onSuccess, onError, body) => {

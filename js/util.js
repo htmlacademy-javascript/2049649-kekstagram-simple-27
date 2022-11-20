@@ -2,10 +2,10 @@ const isEscapeKey = (evt) => evt.key === 'Escape'; // Проверка нажа�
 
 const ALERT_SHOW_TIME = 5000;
 
-const errorMessage = () => {
+const errorMessage = (textError) => {
   const alert = document.createElement('div');
   const errorText = document.createElement('p');
-  errorText.textContent = 'Ошибка! :(';
+  errorText.textContent = textError;
   errorText.style.color = 'black';
   alert.append(errorText);
   alert.style.position = 'absolute';
