@@ -1,52 +1,28 @@
-//Написанная мною функция, возвращающая случайное целое число из переданного диапазона включительно
-function getRandomInt(min, max) {
-  if (isNaN(Number(min)) || isNaN(Number(max))) {
-    return NaN;
-  }
+const isEscapeKey = (evt) => evt.key === 'Escape'; // Проверка нажатой клавиши
 
-  if (min < 0 || max < 0) {
-    return NaN;
-  }
+const ALERT_SHOW_TIME = 5000;
 
-  min = Math.ceil(min);
-  max = Math.floor(max);
+const errorMessage = () => {
+  const alert = document.createElement('div');
+  const errorText = document.createElement('p');
+  errorText.textContent = 'Ошибка! :(';
+  errorText.style.color = 'black';
+  alert.append(errorText);
+  alert.style.position = 'absolute';
+  alert.style.zIndex = '100';
+  alert.style.left = '0';
+  alert.style.top = '0';
+  alert.style.right = '0';
+  alert.style.padding = '10px 3px';
+  alert.style.fontSize = '30px';
+  alert.style.textAlign = 'center';
+  alert.style.backgroundColor = 'red';
 
-  if (min === max) {
-    return NaN;
-  }
+  document.body.append(alert);
 
-  if (min > max) {
-    const temp = min;
-    min = max;
-    max = temp;
-  }
+  setTimeout(() => {
+    alert.remove();
+  }, ALERT_SHOW_TIME);
+};
 
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-getRandomInt(1, 10);
-
-//Функция для проверки максимальной длины строки
-function checkStringLength(string, maxLength) {
-  return string.length <= maxLength;
-}
-
-checkStringLength('Meow', 150);
-
-//Функции от Кекса, возвращающая случайное целое число из переданного диапазона включительно
-function getRandomPositiveInteger (a, b) {
-  if (a < 0 || b < 0) {
-    return NaN;
-  }
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-}
-
-// Генерация случайного элемента в массиве
-const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
-
-const isEscapeKey = (evt) => evt.key === 'Escape'; // Проверка нажитой клавиши
-
-export {getRandomPositiveInteger, getRandomArrayElement, isEscapeKey};
+export {isEscapeKey, errorMessage};
