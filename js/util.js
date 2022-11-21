@@ -1,6 +1,6 @@
-const isEscapeKey = (evt) => evt.key === 'Escape'; // Проверка нажатой клавиши
-
 const ALERT_SHOW_TIME = 5000;
+
+const isEscapeKey = (evt) => evt.key === 'Escape'; // Проверка нажатой клавиши
 
 const errorMessage = (textError) => {
   const alert = document.createElement('div');
