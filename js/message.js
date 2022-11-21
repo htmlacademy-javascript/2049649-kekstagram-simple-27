@@ -13,7 +13,7 @@ const onMessageEscKeydown = (evt) => {
 };
 
 const onOverlayClick = (evt) => {
-  if (!evt.target.contains('modal-message')) {
+  if (!evt.target.classList.contains('modal-message')) {
     closeMessage();
   }
 };
