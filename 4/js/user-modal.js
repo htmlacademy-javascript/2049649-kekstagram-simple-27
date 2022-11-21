@@ -1,3 +1,5 @@
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+
 import {isEscapeKey} from './util.js';
 import {imgUploadForm, pristine} from './user-form.js';
 import {resetScale} from './scale.js';
@@ -6,7 +8,6 @@ import {resetEffects} from './effect.js';
 import {sendData} from './api.js';
 import {showSuccessMessage, showErrorMessage} from './message.js';
 
-const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 const preview = document.querySelector('.img-upload__preview img');
 
 const uploadFile = document.querySelector('#upload-file'); // Поле для загрузки изображения
