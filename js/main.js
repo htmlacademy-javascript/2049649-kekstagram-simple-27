@@ -2,7 +2,7 @@ import './miniatures.js';
 import './user-modal.js';
 import {getData} from './api.js';
 import {getPhotoAll} from './miniatures.js';
-import {errorMessage} from './util.js';
+import {getErrorMessage} from './util.js';
 import {setUserFormSubmit} from './user-modal.js';
 
 getData(
@@ -10,7 +10,7 @@ getData(
     getPhotoAll(photos);
   },
   () => {
-    errorMessage('Не удалось получить данные');
+    getErrorMessage('Не удалось получить данные');
   }
 );
 

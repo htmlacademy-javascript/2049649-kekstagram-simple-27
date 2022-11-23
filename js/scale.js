@@ -11,7 +11,7 @@ const imgPreview = document.querySelector('.img-upload__preview img');
 let newValue = parseInt(scaleValue.value, 10);
 
 const scaleImage = (value = DEFAULT_SCALE) => {
-  imgPreview.style.transform = `scale(${value / 100})`;
+  imgPreview.style.transform = `scale(${value / MAX_SCALE})`;
   scaleValue.value = `${value}%`;
 };
 
