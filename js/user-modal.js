@@ -24,12 +24,12 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
-function resetPage () {
+const resetPage = () => {
   imgUploadForm.reset();
   resetScale();
   resetEffects();
   pristine.reset();
-}
+};
 
 function openUserModal () {
   imgUploadOverlay.classList.remove('hidden');
@@ -97,4 +97,4 @@ const setUserFormSubmit = () => {
   });
 };
 
-export {setUserFormSubmit};
+export {setUserFormSubmit, onPopupEscKeydown};
